@@ -121,33 +121,38 @@ function getCurrentWeather(city) {
 
 function getForecast(city) {
 	$.ajax({
-		url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1&cnt=5',
+		url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1',
 		method: "GET"
 	}).then(function(response){
 		var days = response.list;
-		for(var i = 1; i < days.length; i++){
-			var date = $('<h4>');
-			var icon = $('<p>');
-			var tempDisplay = $('<p>');
-			var humidity = $('<p>');
-			
-			var day = $('#day-' + i);
-			day.empty();
-			
-			var tempC = days[i].main.temp - 273;
-			var tempF = tempC * 9/5 + 32;
-			var temp = Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F';
-			
-			date.text(days[i].dt_txt);
-			tempDisplay.text(temp);
-			humidity.text(days[i].main.humidity);
-			
-			
-			
-			day.append(date);
-			day.append(icon);
-			day.append(tempDisplay);
-			day.append(humidity);
+		//console.log(days);
+		for(var i = 0; i < days.length; i++){
+			if(i === 4 || i === 12 || i === 20 || i == 28 || i === 36){
+				var date = $('<h4>');
+				var icon = $('<img>');
+				var tempDisplay = $('<p>');
+				var humidity = $('<p>');
+
+				var day = $('#day-' + i);
+				day.empty();
+
+				var tempC = days[i].main.temp - 273;
+				var tempF = tempC * 9/5 + 32;
+				var temp = Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F';
+
+				date.text(days[i].dt_txt);
+				tempDisplay.text('Temp: ' + temp);
+				humidity.text('Humidity: ' + days[i].main.humidity + '%');
+				
+				icon.attr('src','http://openweathermap.org/img/wn/' + days[i].weather[0].icon + '@2x.png');
+
+
+
+				day.append(date);
+				day.append(icon);
+				day.append(tempDisplay);
+				day.append(humidity);
+			}
 		}
 	});
 }

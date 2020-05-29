@@ -1,5 +1,9 @@
 /* CSS Document */
 
+body {
+	animation-delay: 0.5s;
+}
+
 .bg-darker {
 	background-color: #121212;
 }
