@@ -16,11 +16,23 @@
 	<div class="container-fluid mt-2">
 		<div class="row">
 			<!-- Left Side -->
-			<div class="bg-dark col-md-3 rounded m-1 p-2">
+			<div class="bg-dark col-md-3 rounded">
 				<!-- Search -->
-				<div class="form-inline">
+				<div class="form-inline mt-4">
 					<input id="searchInput" class="form-control" type="text" placeholder="Search" aria-label="Search">
-					<button id="searchButton" class="btn-outline-dark btn" type="submit"><i class="fas fa-search fa"></i></button>
+					<button id="searchButton" class="btn btn-danger" type="submit"><i class="fas fa-search fa"></i></button>
+				</div>
+				
+				<!-- Search History -->
+				<div id="searchHistory" class="m-1 mb-4 mt-4">
+					<div class="list-group"> 
+						<button id="test1" class="list-group-item">
+							<span>Most Recent Search</span>
+						</button> 
+						<button id="test2" class="list-group-item">
+							<span>Second Search</span>
+						</button>
+					</div>
 				</div>
 			</div>
 			
