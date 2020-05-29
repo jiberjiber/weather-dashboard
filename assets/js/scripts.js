@@ -38,6 +38,7 @@ function renderRecents(city) {
 		newBtn.attr('data-city', recentsList[i]);
 		newBtn.attr('id', 'recentItem');
 		newBtn.attr('onclick', 'beginRecentQuery');
+		newBtn.addClass(['btn','mt-1']);
 		btnTxt.text(recentsList[i]);
 		newBtn.append(btnTxt);
 		recents.prepend(newBtn);
