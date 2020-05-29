@@ -76,11 +76,15 @@ function getCurrentWeather(city) {
 		url: queryURL,
 		method: "GET"
 	}).then(function (response) {
-		//console.log(response);
+		console.log(response);
 		//console.log(response.weather[0].main);
 
 		lat = response.coord.lat;
 		lon = response.coord.lon;
+		
+		var mils = response.dt * 1000;
+		var date = moment(mils).format('MM-DD-YYYY');
+		
 
 		var title = $('#currentCity');
 		var tempDisplay = $('#currentTemp');
@@ -90,7 +94,7 @@ function getCurrentWeather(city) {
 		var tempC = (response.main.temp - 273);
 		var tempF = tempC * 9 / 5 + 32;
 
-		title.text(response.name);
+		title.text(response.name + ' ' + date);
 		tempDisplay.text('Temperature: ' + Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F');
 		humidity.text('Humidity: ' + response.main.humidity + '%');
 		windspeed.text('Wind Speed: ' + response.wind.speed + 'mph');
@@ -126,11 +130,12 @@ function getForecast(city) {
 		method: "GET"
 	}).then(function(response){
 		var days = response.list;
-		//console.log(days);
+		console.log(days);
 		for(var i = 0; i < days.length; i++){
 			if(i === 4 || i === 12 || i === 20 || i == 28 || i === 36){
-				var date = $('<h4>');
+				var dateDisplay = $('<h4>');
 				var icon = $('<img>');
+				var iconText = $('<p>')
 				var tempDisplay = $('<p>');
 				var humidity = $('<p>');
 
@@ -140,17 +145,22 @@ function getForecast(city) {
 				var tempC = days[i].main.temp - 273;
 				var tempF = tempC * 9/5 + 32;
 				var temp = Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F';
+				
+				var mils = days[i].dt * 1000;
+				var date = moment(mils).format('MM-DD-YYYY');
 
-				date.text(days[i].dt_txt);
+				dateDisplay.text(date);
 				tempDisplay.text('Temp: ' + temp);
 				humidity.text('Humidity: ' + days[i].main.humidity + '%');
 				
 				icon.attr('src','http://openweathermap.org/img/wn/' + days[i].weather[0].icon + '@2x.png');
+				iconText = days[i].weather[0].main;
 
 
 
-				day.append(date);
+				day.append(dateDisplay);
 				day.append(icon);
+				day.append(iconText);
 				day.append(tempDisplay);
 				day.append(humidity);
 			}
