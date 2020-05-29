@@ -93,8 +93,14 @@ function getCurrentWeather(city) {
 
 		var tempC = (response.main.temp - 273);
 		var tempF = tempC * 9 / 5 + 32;
+		
+		var iconCont = $('<span>');
+		var icon = $('<img>');
+		icon.attr('src','http://openweathermap.org/img/wn/' + response.weather[0].icon + '.png');
 
 		title.text(response.name + ' ' + date);
+		iconCont.append(icon);
+		title.append(iconCont);
 		tempDisplay.text('Temperature: ' + Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F');
 		humidity.text('Humidity: ' + response.main.humidity + '%');
 		windspeed.text('Wind Speed: ' + response.wind.speed + 'mph');
