@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Dashboard</title>
+	<link href="assets/css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg-darker text-light">
+	<div class="text-center h-25 bg-dark text-light p-1 justify-content-center">
+		<h2>Weather Dashboard</h2>
+	</div>
+	<div class="container-fluid mt-2">
+		<div class="row">
+			<!-- Left Side -->
+			<div class="bg-dark col-md-3 rounded m-1 p-2">
+				<!-- Search -->
+				<div class="form-inline">
+					<input id="searchInput" class="form-control" type="text" placeholder="Search" aria-label="Search">
+					<button id="searchButton" class="btn-outline-dark btn" type="submit"><i class="fas fa-search fa"></i></button>
+				</div>
+			</div>
+			
+			<!-- Right Side -->
+			<div class="bg-dark col-md rounded m-1 p-2">
+				<!-- Selected City -->
+				<div id="responseTarget">
+					
+				</div>
+				<!-- 5 Day Forecast -->
+				<div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="https://kit.fontawesome.com/d429243156.js" crossorigin="anonymous"></script>
+</body>
+</html>
