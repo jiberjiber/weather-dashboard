@@ -76,6 +76,7 @@ function getCurrentWeather(city) {
 		method: "GET"
 	}).then(function (response) {
 		//console.log(response);
+		//console.log(response.weather[0].main);
 
 		lat = response.coord.lat;
 		lon = response.coord.lon;
@@ -119,7 +120,36 @@ function getCurrentWeather(city) {
 }
 
 function getForecast(city) {
-	console.log('Forecast Requested');
+	$.ajax({
+		url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1&cnt=5',
+		method: "GET"
+	}).then(function(response){
+		var days = response.list;
+		for(var i = 1; i < days.length; i++){
+			var date = $('<h4>');
+			var icon = $('<p>');
+			var tempDisplay = $('<p>');
+			var humidity = $('<p>');
+			
+			var day = $('#day-' + i);
+			day.empty();
+			
+			var tempC = days[i].main.temp - 273;
+			var tempF = tempC * 9/5 + 32;
+			var temp = Math.ceil(tempC) + 'C/' + Math.ceil(tempF) + 'F';
+			
+			date.text(days[i].dt_txt);
+			tempDisplay.text(temp);
+			humidity.text(days[i].main.humidity);
+			
+			
+			
+			day.append(date);
+			day.append(icon);
+			day.append(tempDisplay);
+			day.append(humidity);
+		}
+	});
 }
 
 
