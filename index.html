@@ -4,9 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weather Dashboard</title>
-	<link href="assets/css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+	<title>Weather Dashboard</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-darker text-light">
@@ -16,22 +20,19 @@
 	<div class="container-fluid mt-2">
 		<div class="row">
 			<!-- Left Side -->
-			<div class="bg-dark col-md-3 rounded">
+			<div class="bg-dark col-md-3 m-1 rounded">
 				<!-- Search -->
 				<div class="form-inline mt-4">
-					<input id="searchInput" class="form-control" type="text" placeholder="Search" aria-label="Search">
-					<button id="searchButton" class="btn btn-danger" type="submit"><i class="fas fa-search fa"></i></button>
+					<form autocomplete="off">
+						<input id="searchInput" class="form-control" type="text" placeholder="Search">
+						<button id="searchButton" class="btn btn-info" type="submit"><i class="fas fa-search fa"></i></button>
+					</form>
 				</div>
 				
 				<!-- Search History -->
-				<div id="searchHistory" class="m-1 mb-4 mt-4">
-					<div class="list-group"> 
-						<button id="test1" class="list-group-item">
-							<span>Most Recent Search</span>
-						</button> 
-						<button id="test2" class="list-group-item">
-							<span>Second Search</span>
-						</button>
+				<div class="m-1 mb-4 mt-4">
+					<div id="searchHistory" class="list-group"> 
+						<!-- Recents go here -->
 					</div>
 				</div>
 			</div>
@@ -39,16 +40,40 @@
 			<!-- Right Side -->
 			<div class="bg-dark col-md rounded m-1 p-2">
 				<!-- Selected City -->
-				<div id="responseTarget">
-					
+				<div id="responseTarget" class="p-4 border border-info rounded-lg">
+					<h1>City/date H1</h1>
+					<p>Temp p</p>
+					<p>Humidity p</p>
+					<p>Wind Speed p</p>
+					<span>UV Index: </span><span class="badge-danger rounded p-2">UV span</span>
 				</div>
 				<!-- 5 Day Forecast -->
-				<div>
-					
+				<div class="container">
+					<div class="row p-2 justify-content-around">
+						<div id="day-1" class="col-xl-2 bg-info rounded m-1">
+							<p>Date 1</p>
+							<p><i class="fas fa-cloud-sun"></i></p>
+							<p>Temp</p>
+							<p>Humidity</p>
+						</div>
+						<div id="day-2" class="col-xl-2 bg-info rounded m-1">
+							<p>Date 2</p>
+						</div>
+						<div id="day-3" class="col-xl-2 bg-info rounded m-1">
+							<p>Date 3</p>
+						</div>
+						<div id="day-4" class="col-xl-2 bg-info rounded m-1">
+							<p>Date 4</p>
+						</div>
+						<div id="day-5" class="col-xl-2 bg-info rounded m-1">
+							<p>Date 5</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<script src="https://kit.fontawesome.com/d429243156.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/d429243156.js" crossorigin="anonymous"></script>
+	<script src="assets/js/scripts.js" type="text/javascript"></script>
 </body>
 </html>
