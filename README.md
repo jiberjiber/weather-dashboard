@@ -5,6 +5,7 @@
  - [Project Status](#project-status)
  - [Application Preview](#application-preview)
  - [Application walkthrough](#application-walk-through)
+ - [External APIs Used](#api-sources)
 </p>
 </details>
 
@@ -39,3 +40,9 @@
 	* Humidity
 
 * All data is saved to your browser so you can return at any time and review the live weather for the city you requested.
+
+## API Sources
+Special thanks to OpenWeather for their following APIs
+* [Current Weather Data](https://openweathermap.org/current)
+* [5 day / 3 Hour Forecast](https://openweathermap.org/forecast5)
+* [UV Index](https://openweathermap.org/api/uvi)
