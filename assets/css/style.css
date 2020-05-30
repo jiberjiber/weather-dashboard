@@ -1,7 +1,7 @@
 /* CSS Document */
 
 body {
-	animation-delay: 0.5s;
+	transition: 0.5s;
 }
 
 .bg-darker {
