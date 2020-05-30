@@ -76,7 +76,7 @@ function getCurrentWeather(city) {
 		url: queryURL,
 		method: "GET"
 	}).then(function (response) {
-		console.log(response);
+		//console.log(response);
 		//console.log(response.weather[0].main);
 
 		lat = response.coord.lat;
@@ -136,7 +136,7 @@ function getForecast(city) {
 		method: "GET"
 	}).then(function(response){
 		var days = response.list;
-		console.log(days);
+		//console.log(days);
 		for(var i = 0; i < days.length; i++){
 			if(i === 4 || i === 12 || i === 20 || i == 28 || i === 36){
 				var dateDisplay = $('<h4>');
