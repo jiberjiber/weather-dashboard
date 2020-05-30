@@ -70,7 +70,7 @@ function beginRecentQuery() {
 }
 
 function getCurrentWeather(city) {
-	var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1';
+	var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1';
 
 	$.ajax({
 		url: queryURL,
@@ -96,7 +96,7 @@ function getCurrentWeather(city) {
 		
 		var iconCont = $('<span>');
 		var icon = $('<img>');
-		icon.attr('src','http://openweathermap.org/img/wn/' + response.weather[0].icon + '.png');
+		icon.attr('src','https://openweathermap.org/img/wn/' + response.weather[0].icon + '.png');
 
 		title.text(response.name + ' ' + date);
 		iconCont.append(icon);
@@ -108,7 +108,7 @@ function getCurrentWeather(city) {
 		// ---------------------------------------------------------
 
 		$.ajax({
-			url: 'http://api.openweathermap.org/data/2.5/uvi?appid=69b374abd881e0694b55c1e948ba80d1&lat=' + lat + '&lon=' + lon,
+			url: 'https://api.openweathermap.org/data/2.5/uvi?appid=69b374abd881e0694b55c1e948ba80d1&lat=' + lat + '&lon=' + lon,
 			method: 'GET',
 		}).then(function (UVResponse) {
 			var UVIndex = $('#currentUV');
@@ -132,7 +132,7 @@ function getCurrentWeather(city) {
 
 function getForecast(city) {
 	$.ajax({
-		url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1',
+		url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=69b374abd881e0694b55c1e948ba80d1',
 		method: "GET"
 	}).then(function(response){
 		var days = response.list;
@@ -159,7 +159,7 @@ function getForecast(city) {
 				tempDisplay.text('Temp: ' + temp);
 				humidity.text('Humidity: ' + days[i].main.humidity + '%');
 				
-				icon.attr('src','http://openweathermap.org/img/wn/' + days[i].weather[0].icon + '@2x.png');
+				icon.attr('src','https://openweathermap.org/img/wn/' + days[i].weather[0].icon + '@2x.png');
 				iconText = days[i].weather[0].main;
 
 
